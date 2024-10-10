@@ -3,10 +3,8 @@
  import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../models/product.dart';
-// part file name .g.dart then build runner will generate the file by command
 part 'products_providers.g.dart';
-// we use a (( provider )) with (( get )) request cause we need to access the data and state directly
-//------------------------------------------------------------------------------
+
 const List<Product> allProducts = [
   Product(
       id: '1',
