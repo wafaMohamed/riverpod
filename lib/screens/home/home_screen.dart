@@ -11,7 +11,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // ConsumerWidget == stateless widget and add a WidgetRef as a ref parameter in build method
     // we need update the ui when listening for data changes
-    final  allProducts = ref.watch(productProvider);
+    final  allProducts = ref.watch(productsProvider);
   /** ref provides some methods like:
       1- read provider methods (ref.read) build
       2- watch provide data for changes (listen + build) ref.watch

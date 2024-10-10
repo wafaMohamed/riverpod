@@ -1,9 +1,9 @@
 // Provider is a main building block ( Central Place )
 // State
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../models/product.dart';
+part 'products_providers.g.dart';
 
 const List<Product> allProducts = [
   Product(
@@ -48,19 +48,26 @@ const List<Product> allProducts = [
       image: 'assets/products/guitar.png'),
 ];
 
-final productProvider = Provider(
-  // return state value
-  (ref) => allProducts,
-);
-final reducedProductsProvider = Provider(
-  (ref) {
-    // without .toList it will return an iterable
-    allProducts.where((Product product) => product.price < 50).toList();
-    // it will return true or false
-  },
-);
 
+
+/** generated provider
+add build_runner package
+ flutter pub run build_runner build
+ then add part file name .g.dart
+ put this command:
+ dart run build_runner watch **/
+/**
+ @riverpod
+    // import the annotation package it's inclue the riverpod also
+    // put the return type of state value
+    // add ref parameter -> refer to the ref of  state value
+    // return the state value do the generating file
+ **/
 @riverpod
-List<Product> products (WidgetRef ref){
+List<Product> products ( ref){
    return allProducts;
+}
+@riverpod
+List<Product> reducedProducts (ref){
+  return allProducts.where((product) => product.price < 50 ,).toList();
 }
